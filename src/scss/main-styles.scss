@@ -1,0 +1,161 @@
+@import 'vars';
+@import 'phantoms';
+
+.d_f, .df {
+  @extend %flexbox;
+}
+.f-row-now, .frn {
+  @extend %flexbox;
+  flex-flow: row nowrap;
+}
+.f-row-w, .frw {
+  @extend %flexbox;
+  flex-flow: row wrap;
+}
+.f-row-wrev, .frwr {
+  @extend %flexbox;
+  flex-flow: row wrap-reverse;
+}
+.f-col-now, .fcn {
+  @extend %flexbox;
+  flex-flow: column nowrap;
+}
+.f-col-w, .fcw {
+  @extend %flexbox;
+  flex-flow: column wrap;
+}
+.flex-none, .fn {
+  flex: none;
+}
+.flex-max, .fm {
+  flex: 1 1 auto;
+}
+.flex-50, .f50 {
+  flex: 1 1 50%;
+}
+.a_i-end, .aie {
+  align-items: flex-end;
+}
+.a_i-start, .ais {
+  align-items: flex-start;
+}
+.a_i-center, .aic {
+  align-items: center;
+}
+.j_c-center, .jcc {
+  justify-content: center;
+}
+.j_c-end, .jce {
+  justify-content: flex-end;
+}
+.j_c-start, .jcs {
+  justify-content: flex-start;
+}
+.j_c-between, .jcb {
+  justify-content: space-between;
+}
+.j_c-around, .jca {
+  justify-content: space-around;
+}
+.a_c-start, .acs {
+  align-content: flex-start;
+}
+.a_c-end, .ace {
+  align-content: flex-end;
+}
+.a_c-center, .acc {
+  align-content: center;
+}
+.a_c-between, .acb {
+  align-content: space-between;
+}
+.a_c-around, .aca {
+  align-content: space-around;
+}
+.a_c-stretch, .acs {
+  align-content: stretch;
+}
+.o_f-hidden, .ofh {
+  overflow: hidden;
+}
+.o_f-auto, .ofa {
+  overflow: auto;
+}
+.o_f-scroll, .ofs {
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+.width-max, .w-max {
+  width: 100%;
+}
+.width-50 {
+  width: 50%;
+}
+.height-max, .h-max {
+  height: 100%;
+}
+.height-50 {
+  height: 50%;
+}
+
+.h-40 {
+  height: $menu-size;
+}
+.w-40 {
+  width: $menu-size;
+}
+.absolute, .abs {
+  position: absolute;
+}
+.relative, .rel {
+  position: relative;
+}
+.hide,
+[hidden] {
+  display: none !important;
+}
+.hidden {
+  visibility: hidden !important;
+}
+.visible {
+  visibility: visible !important;
+}
+.m_t-5 {
+  margin-top: $min-gap;
+}
+.m_r-5 {
+  margin-right: $min-gap;
+}
+.m_b-5 {
+  margin-bottom: $min-gap;
+}
+.m_l-5 {
+  margin-left: $min-gap;
+}
+.m_t-10 {
+  margin-top: $mid-gap;
+}
+.m_r-10 {
+  margin-right: $mid-gap;
+}
+.m_b-10 {
+  margin-bottom: $mid-gap;
+}
+.m_l-10 {
+  margin-left: $mid-gap;
+}
+.m_t-20 {
+  margin-top: $max-gap;
+}
+.m_r-20 {
+  margin-right: $max-gap;
+}
+.m_b-20 {
+  margin-bottom: $max-gap;
+}
+.m_l-20 {
+  margin-left: $max-gap;
+}
+.padding-5 {
+  padding: $min-gap;
+}

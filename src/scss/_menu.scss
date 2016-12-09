@@ -1,0 +1,22 @@
+.underline {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: -2px;
+    background-color: $color-blue40;
+    height: 1px;
+    width: calc(100% + 4px);
+    transform: scale3d(0, 0, 0);
+    transition: transform .2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  // &:hover:not(.active)::after {
+  //   transform: scale3d(1, 1, 1);
+  // }
+  &.active::after {
+    background-color: $color-blue;
+    transform: scale3d(1, 2, 1);
+  }
+
+}

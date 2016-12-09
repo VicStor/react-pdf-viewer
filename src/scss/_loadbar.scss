@@ -1,0 +1,16 @@
+@import '_vars';
+
+#loadbar circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset .3s linear;
+  stroke: transparent;
+  stroke-width: 3px;
+}
+#loadbar #bar {
+  stroke: $color-blue;
+}
+#loadbar text {
+  text-anchor: middle;
+  font-size: 10px;
+  font-weight: 300;
+}

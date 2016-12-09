@@ -1,0 +1,17 @@
+@import '_vars';
+
+.path {
+  font: 400 14px/18px 'Roboto', sans-serif;
+  text-transform: uppercase;
+  height: 30px;
+  & .path-link {
+    color: $color-blue60;
+  }
+  & .path-link:hover {
+    color: $color-blue;
+  }
+}
+.path-separator {
+  margin: 0 5px;
+  color: $color-blue60;
+}

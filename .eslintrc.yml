@@ -1,0 +1,45 @@
+extends:
+  - plugin:react/recommended
+  - airbnb
+
+parser: babel-eslint
+env:
+  browser: false
+  node: true
+plugins:
+  - react
+  - jsx-a11y
+  - import
+
+ecmaFeatures:
+  jsx: true
+  modules: true
+  destructuring: true
+  classes: true
+  blockBindings: true
+  arrowFunctions: true
+
+rules:
+  strict: 0
+  no-underscore-dangle: 0
+  no-use-before-define: 0
+  no-unused-expressions: [2, { allowShortCircuit: true, allowTernary: true }]
+  eol-last: 0
+  comma-dangle: [2, "never"]
+  radix: [2, "as-needed"]
+  quotes: [2, "single"]
+  no-shadow: [0, { hoist: "never" }]
+  jsx-quotes: [2, "prefer-single"]
+  no-bitwise: [2, { allow: ["~"] }]
+  arrow-body-style: [1, "as-needed"]
+  no-param-reassign: [2, { props: false }]
+  react/prop-types: [0]
+  react/jsx-no-undef: 1
+  react/jsx-uses-react: 2
+  react/jsx-uses-vars: 2
+  react/jsx-sort-props: 0
+  react/sort-comp: [1, { order: ["static-methods", "lifecycle", "/^on.+$/", "everything-else", "render"] }]
+  jsx-boolean-value: [0, "always"]
+  jsx-a11y/no-static-element-interactions: 1
+  jsx-a11y/anchor-has-content: 1
+  react/jsx-filename-extension: [1, { extensions: [".js", ".jsx"] }]

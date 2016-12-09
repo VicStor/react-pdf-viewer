@@ -1,0 +1,127 @@
+button:focus {
+  outline: none;
+}
+/*----------------------общее описание кнопки----------------------*/
+/*----------------------------------------------------------------------------------------*/
+
+.button {
+  cursor: pointer;
+	text-align: center;
+	background-color: transparent;
+  &.active::after {
+    display: none;
+  }
+  &::after {
+    content: '';
+    display: none;
+    opacity: 0;
+  }
+  &:hover::after {
+    display: inline;
+  	opacity: 1;
+    animation: popup .3s ease 1;
+  }
+  &.menu-button {
+  	height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    &::after {
+    	display: none;
+    }
+  }
+  &.list-button {
+    height: 34px;
+    width: 34px;
+    &::after{
+    	display: none;
+    }
+  }
+  &.rounded-button {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+  }
+}
+
+
+/*------------------TEXT BUTTON---------------*/
+.text-button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 2px;
+	background-color: $color-white;
+  & > .btn-text{
+    user-select: none;
+  }
+  & > .spinner {
+    width: 40px;
+    height: 20px;
+  }
+}
+
+.spinner > div {
+  background-color: $color-white;
+  height: 55px;
+  max-height: 100%;
+  width: calc(20% - 4px);
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  animation-delay: -1.1s;
+}
+.spinner .rect3 {
+  animation-delay: -1.0s;
+}
+.spinner .rect4 {
+  animation-delay: -0.9s;
+}
+.spinner .rect5 {
+  animation-delay: -0.8s;
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.5);
+  }  20% {
+    transform: scaleY(1.0);
+  }
+}
+
+
+
+/*-----------текст подсказки для кнопок-----------*/
+.trash::after{
+    content: "delete";
+}
+.rename::after{
+    content: "rename";
+}
+.download::after{
+    content: "download";
+}
+.help::after{
+    content: "help";
+}
+.favorites::after{
+    content: "favorites";
+}
+.tags::after{
+	content: "tags";
+}
+.search::after{
+	content: "search";
+}
+.new-folder::after{
+	content: "new folder";
+}
+.clear-all-tags::after{
+	content: "clear tags";
+}
+
+.close::after,
+.ok::after,
+.left::after,
+.right::after{
+	display: none;
+}

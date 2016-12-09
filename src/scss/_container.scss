@@ -1,0 +1,11 @@
+@import '_vars';
+@import 'mixins';
+
+
+.container {
+  @include container;
+}
+.files-container {
+  @include container( $gap: 10px );
+  overflow: hidden;
+}

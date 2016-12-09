@@ -1,0 +1,38 @@
+.scrollbar-container{
+  position: absolute;
+  background-color: transparent;
+  z-index: 50;
+  .scrollbar{
+    background: black;
+    border-radius: 2px;
+    opacity: .1;
+    transition: opacity .4s ease;
+    will-change: transform, opacity;
+  }
+  &.horizontal{
+    width: calc(100% - 10px);
+    left: 0;
+    bottom: 2px;
+    margin: 0 5px;
+    .scrollbar{
+      width: 40px;
+      height: 6px;
+    }
+  }
+  &.vertical{
+    height: calc(100% - 10px);
+    right: 2px;
+    top: 0;
+    margin: 5px 0;
+    .scrollbar{
+      width: 6px;
+      height: 40px;
+    }
+  }
+
+  &:hover, &.active{
+    .scrollbar{
+      opacity: .3;
+    }
+  }
+}

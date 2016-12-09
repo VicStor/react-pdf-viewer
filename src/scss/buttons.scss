@@ -1,0 +1,140 @@
+/*----------------------общее описание кнопки----------------------*/
+.button {
+  cursor: pointer;
+  text-align: center;
+  &::after {
+    content: '';
+    display: none;
+    opacity: 0;
+  }
+  &:hover::after {
+    display: block;
+    opacity: 1;
+    animation-name: popup;
+    animation-duration: .3s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+  }
+  &:not(.active):hover {
+    z-index: 22;
+  }
+}
+/*----------------------кнопка в меню----------------------*/
+.menu-button {
+  position: relative;
+  opacity: 1;
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  /*
+	margin-right: 10px;
+    */
+  transition-property: width, background-position, margin;
+  transition-duration: 0.1s, 0s, 1s;
+  transition-timing-function: ease, linear, linear;
+}
+.menu-button::after {
+  position: relative;
+  left: 44px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  font-size: 16px;
+  text-align: left;
+  line-height: 34px;
+}
+.menu-button:hover::after {
+  display: block;
+  opacity: 1;
+}
+.close:hover {
+}
+.menu-button.favorites {
+}
+.menu-button.favorites:hover::after {
+  display: none;
+}
+/*-----------кнопки на список-----------*/
+.list-button {
+  height: 34px;
+  width: 34px;
+  transition-property: opacity, background-color, box-shadow;
+  transition-duration: 0.2s, 0.15s, 0.1s;
+  transition-timing-function: ease;
+  z-index: 5;
+}
+.list-button.button::after {
+  display: none;
+}
+/*-----------------кнопки TAGS,SEARCH,NEW FOLDER,VIEW-HIDE------------------*/
+label.button > * {
+  display: none;
+}
+/*----------------------------------------------------------------------------------------*/
+.button:not(.active) > *:not(svg) {
+  display: none;
+}
+.menu-button.active > .button {
+  flex: none;
+}
+.menu-button.active > .menu-input {
+  flex: auto;
+  margin: 0 1px;
+  height: 30px;
+}
+.button.active::after {
+  display: none;
+}
+.menu-button.active {
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+}
+.menu-button.new-folder.active,
+.menu-button.search.active {
+  width: 250px;
+  background-image: none;
+}
+/*.menu-button.new-folder:not(.active):hover{
+    width: 120px;
+}*/
+.input-button > .button {
+  width: 34px;
+  height: 34px;
+}
+/*-----------текст подсказки для кнопок-----------*/
+/*-----------из атрибута data-popuphelp-----------*/
+/*.card-button::after{
+	content: attr(data-popuphelp);}*/
+.trash::after {
+  content: "delete";
+}
+.rename::after {
+  content: "rename";
+}
+.download::after {
+  content: "download";
+}
+.help::after {
+  content: "help";
+}
+.favorites::after {
+  content: "favorites";
+}
+.tags::after {
+  content: "tags";
+}
+.search::after {
+  content: "search";
+}
+.new-folder::after {
+  content: "new folder";
+}
+.clear-all::after {
+  content: "clear all";
+}
+.close::after,
+.left::after,
+.ok::after,
+.right::after {
+  display: none;
+}

@@ -1,0 +1,65 @@
+@import '_vars';
+.button.active,
+.button:hover {
+	& > .svgbutton.light {
+		fill: $color-white;
+	}
+	& > .svgbutton.dark {
+		fill: $color-blue;
+	}
+}
+
+.button.favorites:hover:not(.active) > .svgbutton{
+  stroke: $color-yellow;
+  fill: transparent;
+}
+.button.favorites.active > .svgbutton{
+  stroke: $color-yellow;
+  fill: $color-yellow;
+}
+.svgbutton {
+	height: 100%;
+	fill-rule: evenodd;
+  transition: all .2s ease;
+	&.dark {
+    fill: $color-blue60;
+		&.favorites {
+	    stroke: $color-blue60;
+		}
+	}
+	&.light {
+    fill: $color-white60;
+		&.favorites {
+	    stroke: $color-white60;
+		}
+	}
+	&.favorites {
+    stroke-width: 2;
+    fill: transparent;
+	}
+	&.delete-page,
+	&.delete-all-pages{
+	  stroke: rgba(255, 0, 0, 0.6);
+		fill: transparent;
+		&:hover{
+		  fill: $color-red;
+		}
+	}
+	&.add-page{
+	  fill: rgba(0, 186, 67, 0.6);
+		&:hover{
+		  fill: $color-green;
+		}
+	}
+}
+.svgbutton use{
+  x: 0;
+  y: 0;
+}
+
+
+
+.svgbutton.help:hover {
+  fill: rgba(255, 0, 0, 0.8);
+
+}

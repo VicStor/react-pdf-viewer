@@ -1,0 +1,46 @@
+@import '_vars';
+@import 'mixins';
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+html {
+	height: 100%;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	overflow: hidden;
+}
+body {
+	height: 100%;
+	font-weight: 400;
+	overflow: hidden;
+	color: #535353;
+	background-color: $color-lightblue;
+}
+a,
+a:active,
+a:visited {
+	cursor: pointer;
+	text-decoration: none;
+	color: #535353;
+}
+input:focus,
+textarea:focus {
+	outline: 0 none;
+}
+ul {
+	list-style: none;
+}
+h3 {
+	font-weight: 400;
+	font-size: 30px;
+	color: #4E4E4E;
+	letter-spacing: 0.5px;
+	line-height: 34px;
+}

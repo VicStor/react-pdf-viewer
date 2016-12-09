@@ -1,0 +1,57 @@
+@import '_vars';
+
+@mixin background( $repeat: no-repeat, $position: center, $color: #FFF, $size: 100%) {
+  background: {
+    repeat: $repeat;
+    position: $position;
+    color: $color;
+    size: $size;
+  }
+}
+
+@mixin no-user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin font-roboto( $size: 12px, $weight: $font-regular) {
+  font: {
+    family: 'Roboto', sans-serif;
+    size: $size;
+    weight: $weight;
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin padding( $gap: $min-gap ) {
+  padding: $gap;
+}
+
+@mixin container ( $background-color: $color-white, $gap: $min-gap ){
+  @include padding($gap);
+  background-color: $background-color;
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin f-row-w {
+  @include flexbox;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+@mixin j_c-start {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}

@@ -1,0 +1,24 @@
+# Mac files
+.DS_Store
+
+# Git folder
+.git
+
+# Dependency directory
+node_modules
+
+# sass-cashe directory
+.sass-cache
+
+#dist, build, public folders
+dist
+build
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
