@@ -59,7 +59,7 @@ class PdfViewer extends Component {
     this.documentPromise
       .then((pdfDocument) => {
         pdfDocument.loadingTask.onProgress = this.props.loadingProgress;
-        this.props.getNumPages(pdfDocument.numPages);
+        this.props.onLoad(pdfDocument);
         this.setState({ pdfDocument });
       })
       .catch(this.documentOnError);

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import TopMenu from './top_menu';
-import BottomMenu from './bottom_menu';
-import Loader from '../helpers/loader';
 import PdfViewer from './pdf_viewer';
 
 class Viewer extends Component {
@@ -13,109 +10,95 @@ class Viewer extends Component {
       isFullScreen: false,
       showThumbnails: false,
       currentIndex: 0,
-      loadingProgress: 0,
-      numPages: null,
-      scrollToItem: null,
-      docName: null
+      numPages: null
+    };
+    this.PdfViewer = {
+      switchViewMode: this.switchViewMode,
+      showThumbnails: this.showThumbnails,
+      currentPage: this.currentPage,
+      numPages: this.numPages,
+      onProgress: this.onProgress,
+      onLoad: this.onLoad,
+      onPageFlipp: this.onPageFlipp,
+      scrollToPage: this.scrollToPage
+    };
+    props.getViewer(this.PdfViewer);
+  }
+  onProgress = (callback) => {
+    if (typeof callback === 'function') {
+      this.onProgress = callback;
+    }
+  }
+  onLoad = (callback) => {
+    this.onLoad = (pdfDocument) => {
+      if (typeof callback === 'function') {
+        callback(pdfDocument);
+      }
+      this.setNumPages(pdfDocument.numPages);
     };
   }
-  // componentDidMount() {
-  //   if (this.props.dbLink) {
-  //     this.props.isPdf
-  //     ? this.setPdfPreview(this.props.dbLink)
-  //     : this.setImagePreview(this.props.dbLink);
-  //   }
-  // }
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.dbLink !== this.props.dbLink) {
-  //     this.setDocument(newProps.dbLink);
-  //   }
-  // }
-  componentWillUnmount() {}
-
-  loadingProgress = (progress) => {
-    const loadingProgress = Math.floor((100 * progress.loaded) / progress.total);
-    this.setState({ loadingProgress });
+  onPageFlipp = (callback) => {
+    this.onPageFlipp = (pageIndex) => {
+      if (typeof callback === 'function') {
+        callback(pageIndex);
+      }
+      this.setCurrentPage(pageIndex);
+    };
   }
-  getNumPages = (numPages) => {
+  scrollToPage = (pageIndex) => {
+    this.scrollToItem(pageIndex);
+  }
+  scrollToItem = (scrollToItem) => {
+    if (typeof scrollToItem === 'function') {
+      this.scrollToItem = scrollToItem;
+    }
+  }
+  setNumPages = (numPages) => {
     this.setState({ numPages });
   }
-  showThumbnailsHandler = () => {
-    this.setState({ showThumbnails: !this.state.showThumbnails });
-  }
-  fitWidthHandler = () => {
-    const { fitWidth } = this.state;
-    this.setState({ fitWidth: !fitWidth });
-  }
-  setCurrentPageHandler = (pageIndex) => {
+  setCurrentPage = (pageIndex) => {
     const { numPages } = this.state;
     if (pageIndex >= 0 && pageIndex < numPages) {
-      console.log('Viewer setCurrentPage === ===> pageIndex: ', pageIndex);
       this.setState({ currentIndex: pageIndex });
     }
   }
-  getScrollToItem = (scrollToItem) => {
-    this.setState({ scrollToItem });
+  numPages = () => {
+    return this.state.numPages;
   }
-  fullScreenHandler = () => {
-    this.setState({ isFullScreen: !this.state.fullScreen });
+  currentPage = () => {
+    return this.state.currentIndex;
+  }
+  showThumbnails = (switcher) => {
+    const { showThumbnails } = this.state;
+    if (switcher !== undefined) {
+      this.setState({ showThumbnails: switcher });
+    }
+    return switcher || showThumbnails;
+  }
+  switchViewMode = (switcher) => {
+    const { fitWidth } = this.state;
+    this.setState({ fitWidth: switcher || !fitWidth });
+    // viewMode 'fitPage' || 'fitWidth'
+    if (fitWidth) {
+      return 'fitWidth';
+    }
+    return 'fitPage';
   }
 
-  renderDocument() {
-    const { currentIndex, showThumbnails, fitWidth, isFetching } = this.state;
-    const { docLink } = this.props;
-    const {
-      loadingProgress, getNumPages,
-      setCurrentPageHandler, getScrollToItem
-    } = this;
-    if (isFetching) {
-      return <Loader />;
-    }
+  render() {
+    const { onLoad, onProgress, onPageFlipp, scrollToItem } = this;
+    const { fitWidth, showThumbnails } = this.state;
     return (
       <PdfViewer
-        docLink={docLink}
+        docLink={this.props.docLink}
+        loadingProgress={onProgress}
         fitWidth={fitWidth}
-        currentIndex={currentIndex}
-        loadingProgress={loadingProgress}
-        getNumPages={getNumPages}
+        onLoad={onLoad}
         showThumbnails={showThumbnails}
-        setCurrentPageHandler={setCurrentPageHandler}
-        getScrollToItem={getScrollToItem}
+        setCurrentPageHandler={onPageFlipp}
+        getScrollToItem={scrollToItem}
       />
     );
   }
-  render() {
-    const {
-      isFullScreen, showThumbnails, currentIndex,
-      loadingProgress, numPages, scrollToItem,
-      fitWidth, docName, closePreviewHandler
-    } = this.state;
-    const { fullScreenHandler, showThumbnailsHandler,
-      fitWidthHandler, setCurrentPageHandler } = this;
-    return (
-      <div className={`preview fm afh fcn${isFullScreen ? ' fullScreen' : ''}`}>
-        <TopMenu
-          previewTitle={docName}
-          fullScreenHandler={fullScreenHandler}
-          closePreview={closePreviewHandler}
-          loadingProgress={loadingProgress}
-        />
-        <div className='content fm frn ofh'>
-          {this.renderDocument()}
-        </div>
-        <BottomMenu
-          numPages={numPages}
-          fitWidth={fitWidth}
-          showThumbnails={showThumbnails}
-          showThumbnailsHandler={showThumbnailsHandler}
-          fitWidthHandler={fitWidthHandler}
-          currentPage={currentIndex}
-          setCurrentPage={setCurrentPageHandler}
-          scrollToPage={scrollToItem}
-        />
-      </div>
-    );
-  }
 }
-
 export default Viewer;

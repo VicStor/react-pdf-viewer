@@ -10,7 +10,11 @@ const port = 4040;
 
 const compiler = webpack(config);
 
-app.use(webpackDevMiddleware(compiler, { publicPath: config.output.publicPath }));
+app.use(webpackDevMiddleware(compiler,
+  {
+    publicPath: config.output.publicPath,
+    noInfo: true
+  }));
 app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static('public'));

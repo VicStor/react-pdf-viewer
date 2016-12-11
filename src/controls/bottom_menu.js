@@ -9,13 +9,12 @@ const PreviewBottomMenu = ({
   showThumbnails,
   fitWidthHandler,
   currentPage,
-  setCurrentPage,
   scrollToPage
 }) => {
   const inputPageHandler = (e) => {
     console.log('Input: ', parseInt(e.target.value));
     if (parseInt(e.target.value)) {
-      setCurrentPage(parseInt(e.target.value));
+      scrollToPage(parseInt(e.target.value));
     }
   };
   return (
