@@ -3,7 +3,7 @@
 Usage
 -----
 
-$ git clone https://github.com/VictorQD/react-pdf-viewer.git
+$ git clone https://github.com/VicStor/react-pdf-viewer
 
 $ cd react-pdf-viewer
 
@@ -67,11 +67,11 @@ this.pdfViewer.pdfDocument.onLoad(() => {})
 ```
 and
 ```js
-this.pdfViewer.page(pageNumber).onLoad((page) => {...});
+this.pdfViewer.onPageLoad((page) => {...});
 ```
 is the same as
 ```js
-this.pdfViewer.pdfDocument.page(pageNumber).onLoad((page) => {...});
+this.pdfViewer.pdfDocument.onPageLoad((page) => {...});
 ```
 Styling
 -----
