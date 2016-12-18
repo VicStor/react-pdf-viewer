@@ -83,3 +83,7 @@ There are some instances need to be styled
 - thumbnail
 - bookmarks container
 - bookmark
+
+Demo
+-----
+Demo version should be placed at [GitHub pages](https://pages.github.com/)
