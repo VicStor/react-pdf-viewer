@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "babel-watch dev.server.js",
+    "start": "babel-watch server.js",
     "build": "webpack --config ./webpack.build.config.js && babel-node server.js",
     "server": "babel-node server.js"
   },

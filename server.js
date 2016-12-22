@@ -4,9 +4,9 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import config from './webpack.config';
+const port = process.env.PORT || 4040;
 
 const app = express();
-const port = 4040;
 
 const compiler = webpack(config);
 
