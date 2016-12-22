@@ -2,17 +2,14 @@
 .DS_Store
 
 # Git folder
-.git
+.git/
 
 # Dependency directory
-node_modules
+node_modules/
 
 # sass-cashe directory
 .sass-cache
 
-#dist, build, public folders
-dist
-build
 
 # Logs
 logs
