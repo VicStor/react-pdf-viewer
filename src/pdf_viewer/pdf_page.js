@@ -72,7 +72,7 @@ class PdfPage extends Component {
     // console.log('pageIndex: ', this.props.pageIndex);
     // console.log('pageNode: ', pageNode);
     // console.log('pageSize: ', pageSize);
-    // console.log('pdfPage: ', pdfPage);
+    console.log('pdfPage: ', pdfPage);
 
     let canvas = pageNode.querySelector('.pdf-canvas');
     if (canvas) {

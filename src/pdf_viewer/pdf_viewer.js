@@ -131,6 +131,49 @@ class PdfViewer extends Component {
       this.setState({ viewSize });
     }
   }
+  renderDocument() {
+    const { fitWidth, setCurrentPageHandler } = this.props;
+    const { getScroll } = this;
+    // if (fitWidth) {
+    //   return (
+    //     <div className='fm ofh rel fcn'>
+    //       <SmartScroll
+    //         getScroll={getScroll}
+    //         itemClassName='page'
+    //         speed={0.8}
+    //         className='scroll-wrapper fm ofh'
+    //         setCurrentItem={setCurrentPageHandler}
+    //       >
+    //         <div className='doc fcn aic m_r-10' >
+    //           {this.renderPages()}
+    //         </div>
+    //       </SmartScroll>
+    //     </div>
+    //   );
+    // }
+    // return (
+    //   <div className='fm ofh rel fcn'>
+    //     <div className='doc fcn aic m_r-10' >
+    //       {this.renderPages()}
+    //     </div>
+    //   </div>
+    // );
+    return (
+      <div className='fm ofh rel fcn'>
+        <SmartScroll
+          getScroll={getScroll}
+          itemClassName='page'
+          speed={0.8}
+          className='scroll-wrapper fm ofh'
+          setCurrentItem={setCurrentPageHandler}
+        >
+          <div className='doc fcn aic m_r-10' >
+            {this.renderPages()}
+          </div>
+        </SmartScroll>
+      </div>
+    );
+  }
 
   renderPages() {
     console.log('%c Render pdf pages!!!', 'color: red;');
@@ -181,9 +224,8 @@ class PdfViewer extends Component {
     );
   }
   render() {
-    const { showThumbnails, setCurrentPageHandler } = this.props;
+    const { showThumbnails } = this.props;
     const { pdfDocument, bookmarks } = this.state;
-    const { getScroll } = this;
     // const { bookmarks } = this.props;
     return (
       <div className='preview-body fm ofh rel frn'>
@@ -194,20 +236,7 @@ class PdfViewer extends Component {
           this.renderBookmarks()
         }
         {pdfDocument
-          ?
-            <div className='fm ofh rel fcn'>
-              <SmartScroll
-                getScroll={getScroll}
-                itemClassName='page'
-                speed={0.8}
-                className='scroll-wrapper fm ofh'
-                setCurrentItem={setCurrentPageHandler}
-              >
-                <div className='doc fcn aic m_r-10' >
-                  {this.renderPages()}
-                </div>
-              </SmartScroll>
-            </div>
+          ? this.renderDocument()
           : <Loader />
         }
       </div>

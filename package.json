@@ -1,6 +1,6 @@
 {
   "name": "react-pdf-viewer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "React pdf viewer",
   "main": "index.js",
   "directories": {
@@ -9,18 +9,17 @@
   "scripts": {
     "start": "node server.js",
     "build": "webpack --config ./webpack.build.config.js",
-    "server": "node server.js",
     "dev": "babel-watch dev.server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/user/repo"
+    "url": "https://github.com/VicStor/react-pdf-viewer"
   },
   "keywords": [
-    ""
+    "react pdf viewer"
   ],
-  "author": "",
-  "license": "",
+  "author": "Victor Storozhenko",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/user/repo/issues"
   },
