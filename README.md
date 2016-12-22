@@ -1,5 +1,10 @@
 #react-pdf-viewer
 
+Demo
+-----
+[Demo version](https://calm-ridge-49297.herokuapp.com/)
+Work in fetal stage.
+
 Usage
 -----
 
@@ -83,7 +88,3 @@ There are some instances need to be styled
 - thumbnail
 - bookmarks container
 - bookmark
-
-Demo
------
-Demo version should be placed at [GitHub pages](https://pages.github.com/)
