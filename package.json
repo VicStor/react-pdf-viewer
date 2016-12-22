@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node server.js",
     "build": "webpack --config ./webpack.build.config.js",
-    "server": "node server.js"
+    "server": "node server.js",
+    "dev": "babel-watch dev.server.js"
   },
   "repository": {
     "type": "git",
