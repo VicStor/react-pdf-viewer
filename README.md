@@ -54,13 +54,15 @@ class App extends Component {
 
 ###Component
 
-There are two props to be pass to <PdfViewer /> Component as chown below
+There are props to be pass to <PdfViewer /> Component as chown below
+if svg prop set to true page renders as svg, otherwise it renders in canvas
 ```js
 render() {
   return (
     <PdfViewer
       getPdfViewer={this.getViewer}
       docLink='link to pdfDocument'
+      //svg
     />
   );
 }
