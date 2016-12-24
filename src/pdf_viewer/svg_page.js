@@ -10,7 +10,7 @@ function pageStyle(pageSize, fitWidth) {
   return pageStyle;
 }
 
-class PdfPage extends Component {
+class SvgPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -130,7 +130,7 @@ class PdfPage extends Component {
   }
 }
 
-export default PdfPage;
+export default SvgPage;
 
 // const textLayerDiv = global.document.createElement('div');
 // textLayerDiv.className = 'textLayer';

@@ -1,0 +1,14 @@
+.bookmarks-wrapper {
+  position: absolute;
+  top: 0;
+  left: -45px;
+  height: 100%;
+  z-index: 10;
+}
+.bookmarks-container {
+}
+
+.bookmark {
+  margin: 3px;
+  border: solid 1px $color-blue40;
+}

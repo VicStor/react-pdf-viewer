@@ -63,6 +63,7 @@ class App extends Component {
       <Viewer
         getViewer={this.getViewer}
         docLink='https://dl.dropboxusercontent.com/u/30395115/In%20The%20Wood%202015.pdf'
+        // svg
       />
     );
   }
@@ -74,14 +75,14 @@ class App extends Component {
     const { fullScreenHandler, showThumbnailsHandler,
       fitWidthHandler, scrollToPage } = this;
     return (
-      <div className={`preview fm afh fcn${isFullScreen ? ' fullScreen' : ''}`}>
+      <div className={`preview fm fcn${isFullScreen ? ' fullScreen' : ''}`}>
         <TopMenu
           previewTitle='Some docName'
           fullScreenHandler={fullScreenHandler}
           closePreview={closePreviewHandler}
           loadingProgress={loadingProgress}
         />
-        <div className='fm frn ofh'>
+        <div className='fm frn'>
           {this.renderDocument()}
         </div>
         <BottomMenu

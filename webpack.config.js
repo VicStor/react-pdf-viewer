@@ -28,7 +28,7 @@ export default {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader', 'eslint-loader'],
+        loaders: ['babel-loader'],
         include: APP_DIR,
         exclude: path.resolve(__dirname, 'node_modules')
       },
@@ -39,10 +39,10 @@ export default {
       }
     ]
   },
-  eslint: {
-    configFile: path.resolve(BUILD_DIR, '.eslintrc.yml'),
-    quiet: true
-  },
+  // eslint: {
+  //   configFile: path.resolve(BUILD_DIR, '.eslintrc.yml'),
+  //   quiet: true
+  // },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),

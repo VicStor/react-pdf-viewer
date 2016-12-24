@@ -3,6 +3,7 @@ import { range, isEqual } from 'lodash';
 
 import SmartScroll from '../smart_scroll';
 import PdfPage from './pdf_page';
+// import SvgPage from './svg_page';
 import PageNumber from './page_number';
 import Loader from '../helpers/loader';
 import ThumbnailsContainer from './thumbnails_container';
@@ -132,7 +133,7 @@ class PdfViewer extends Component {
     }
   }
   renderDocument() {
-    const { fitWidth, setCurrentPageHandler } = this.props;
+    const { setCurrentPageHandler } = this.props;
     const { getScroll } = this;
     // if (fitWidth) {
     //   return (
@@ -177,7 +178,7 @@ class PdfViewer extends Component {
 
   renderPages() {
     console.log('%c Render pdf pages!!!', 'color: red;');
-    const { fitWidth } = this.props;
+    const { fitWidth, svg } = this.props;
     const { pdfDocument, viewSize } = this.state;
     const { addBookmark } = this;
     return range(pdfDocument.numPages).map(pageIndex => (
@@ -186,7 +187,8 @@ class PdfViewer extends Component {
         pdfDocument={pdfDocument}
         pageSize={viewSize}
         fitWidth={fitWidth}
-      >
+        svg={svg}
+          >
         <PageNumber
           pageIndex={pageIndex}
           onClick={addBookmark(pageIndex)}
@@ -228,7 +230,7 @@ class PdfViewer extends Component {
     const { pdfDocument, bookmarks } = this.state;
     // const { bookmarks } = this.props;
     return (
-      <div className='preview-body fm ofh rel frn'>
+      <div className='preview-body fm rel frn'>
         {showThumbnails && pdfDocument &&
           this.renderThumbnails()
         }

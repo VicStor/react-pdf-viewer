@@ -1,0 +1,12 @@
+.fade-right {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition-property: opacity transform;
+  transition-timing-function: ease;
+}
+
+.fade-right-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition-duration: 1.3s;
+}

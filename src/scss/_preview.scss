@@ -49,46 +49,10 @@
 //     opacity: 0;
 // }
 
-.bookmark {
-  margin: 3px;
-  border: solid 1px $color-blue20;
-}
 
 .tmp-bg{
 	background-color: aquamarine;
 }
-.preview-tumbs{
-	width: 180px;
-}
-.thumbs-container {
-  padding: 3px;
-}
-.pdfThumb {
-  &:not(:last-child){
-    margin-bottom: 10px;
-  }
-  & .canvas-wrapper::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: -2px;
-    background-color: $color-blue40;
-    height: 1px;
-    width: calc(100% + 4px);
-    transform: scale3d(0, 0, 0);
-    transition: transform .2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  &.active .canvas-wrapper::after {
-    background-color: $color-blue;
-    transform: scale3d(1, 2, 1);
-  }
-  &:hover .canvas-wrapper::after {
-    background-color: $color-blue40;
-    transform: scale3d(1, 2, 1);
-    // box-shadow: 0 0 2px 0 $color-blue40;
-  }
-}
-
 
 .preview-body{
 

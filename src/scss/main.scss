@@ -6,8 +6,12 @@
 /*------------ Контейнеры ------------*/
 @import '_container';
 
+/*------------ CSS TRANSITION ------------*/
+@import 'css-transitions';
 /*------------ Просмотр ------------*/
 @import '_preview';
+@import 'thumbnails';
+@import 'bookmarks';
 
 /*------------ Временно ------------*/
 @import '_scroll';

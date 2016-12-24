@@ -14,9 +14,9 @@ function renderBookmarks(bookmarks, setCurrentPage) {
 
 export default function ({ bookmarks, deleteBookmark, setCurrentPage }) {
   return (
-    <div className='select-page w-40 m_r-5 container flex-none f-col-now a_i-center j_c-between'>
-      <div className='flex-max selected-page-wrapper'>
-        <div className='f-col-now a_i-center selected-page-container'>
+    <div className='bookmarks-wrapper w-40 padding-5 fn fcn aic jcb'>
+      <div className='fm selected-page-wrapper'>
+        <div className='fcn aic selected-page-container'>
           {renderBookmarks(bookmarks, setCurrentPage)}
         </div>
       </div>
