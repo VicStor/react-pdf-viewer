@@ -1,0 +1,46 @@
+@import '_vars';
+
+@mixin no_style {
+	list-style: none;
+}
+@mixin right($val: 0) {
+	right: $val;
+}
+@mixin left($val: 0) {
+	left: $val;
+}
+@mixin bottom($val: 0) {
+	bottom: $val;
+}
+@mixin top($val: 0) {
+	top: $val;
+}
+@mixin container ( $background-color: $color-white, $gap: $min-gap ){
+  @include padding($gap);
+  background-color: $background-color;
+}
+@mixin padding( $gap: $min-gap ) {
+  padding: $gap;
+}
+@mixin underline($color: $primary-dark) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: -2px;
+    background-color: $color;
+    height: 1px;
+    width: calc(100% + 4px);
+    transform: scale3d(0, 0, 0);
+    transition: transform .2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &:hover:not(.active)::after {
+    transform: scale3d(1, 2, 1);
+  }
+  &.active::after {
+    background-color: $color;
+    transform: scale3d(1, 2, 1);
+  }
+
+}

@@ -4,7 +4,7 @@ button:focus {
 /*----------------------общее описание кнопки----------------------*/
 /*----------------------------------------------------------------------------------------*/
 
-.button {
+.button, .btn {
   cursor: pointer;
 	text-align: center;
 	background-color: transparent;
@@ -45,12 +45,12 @@ button:focus {
 
 
 /*------------------TEXT BUTTON---------------*/
-.text-button {
+.text-button, .txt-btn {
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 2px;
 	background-color: $color-white;
-  & > .btn-text{
+  & > .btn-text, .btn-txt{
     user-select: none;
   }
   & > .spinner {

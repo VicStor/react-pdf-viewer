@@ -1,0 +1,14 @@
+@import '_mixins';
+
+.page-header {
+  background-color: #FFF;
+  height: 4em;
+  padding: 0 1.5em;
+  z-index: 9999;
+}
+.main-nav {
+	font-size: 1.2rem;
+}
+.nav-link {
+  @include underline($primary-dark);
+}

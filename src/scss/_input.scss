@@ -1,0 +1,11 @@
+@import '_vars';
+
+.raised {
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.input {
+  border: 1px solid $color-blue40;
+  border-radius: 2px;
+  padding: 0 5px;
+}

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import Viewer from './pdf_viewer';
+import Viewer from '../pdf_viewer';
 import {
   TopMenu,
   BottomMenu
-} from './controls';
+} from '../controls';
 // import Loader from './helpers/loader';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       fitWidth: true,
       isFullScreen: false,
@@ -54,6 +54,10 @@ class App extends Component {
     });
     this.pdfViewer.onPageFlipp(this.setCurrentPage);
   }
+  closePreviewHandler = () => {
+    console.log('Close preview');
+    this.props.closePreview();
+  }
   renderDocument() {
     // const { isFetching } = this.state;
     // if (isFetching) {
@@ -62,18 +66,17 @@ class App extends Component {
     return (
       <Viewer
         getViewer={this.getViewer}
-        docLink='https://dl.dropboxusercontent.com/u/30395115/In%20The%20Wood%202015.pdf'
-        // svg
+        docLink={this.props.docLink}
+        svg={this.props.svg}
       />
     );
   }
   render() {
     const {
       isFullScreen, showThumbnails, currentIndex,
-      loadingProgress, numPages, fitWidth, closePreviewHandler
-    } = this.state;
+      loadingProgress, numPages, fitWidth } = this.state;
     const { fullScreenHandler, showThumbnailsHandler,
-      fitWidthHandler, scrollToPage } = this;
+      fitWidthHandler, scrollToPage, closePreviewHandler } = this;
     return (
       <div className={`preview fm fcn${isFullScreen ? ' fullScreen' : ''}`}>
         <TopMenu

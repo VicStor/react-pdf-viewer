@@ -21,7 +21,7 @@ module.exports = {
   output: {
     path: BUILD_DIR,
     filename: 'js/[name].js',
-    publicPath: '/static/'
+    publicPath: ''
   },
   module: {
     loaders: [

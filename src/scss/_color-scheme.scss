@@ -1,0 +1,11 @@
+@import '_vars';
+
+.prim-dark {
+  background-color: $primary-dark !important;
+  color: $color-white !important;
+}
+
+.prim-light {
+  background-color: $color-white !important;
+  color: $primary-dark !important;
+}

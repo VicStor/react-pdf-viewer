@@ -2,12 +2,33 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+import appConfig from './server/settings';
 
-const BUILD_DIR = path.resolve(__dirname);
-const APP_DIR = path.resolve(__dirname, 'src/');
+const BUILD_DIR = path.resolve(__dirname, appConfig.publicFolder);
+const APP_DIR = path.resolve(__dirname, appConfig.appFolder);
+
+const devServer = {
+  contentBase: APP_DIR,
+  outputPath: BUILD_DIR,
+  colors: true,
+  quiet: false,
+  noInfo: false,
+  publicPath: '',
+  historyApiFallback: false,
+  host: '127.0.0.1',
+  proxy: {
+    '/api': {
+      target: `http://localhost:${appConfig.gqlPort}`
+    }
+  },
+  port: appConfig.appPort,
+  hot: true
+};
 
 export default {
-  devtool: 'cheap-eval-source-map',
+  devtool: 'eval-source-map',
+  debug: true,
+  devServer,
   entry: {
     app: [
       'webpack-hot-middleware/client?reload=true',
@@ -21,8 +42,8 @@ export default {
   },
   output: {
     path: BUILD_DIR,
-    filename: '[name].js',
-    publicPath: '/static/'
+    filename: 'js/[name].js',
+    publicPath: ''
   },
   module: {
     loaders: [
@@ -49,13 +70,13 @@ export default {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       chunks: ['app'],
-      filename: 'vendor.js',
+      filename: 'js/vendor.js',
       minChunks: 2
     }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify('development') }
     }),
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('css/styles.css')
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.css']

@@ -277,3 +277,8 @@ export const timeConverter = (timeStamp) => {
   // const sec = a.getSeconds();
   return `${date} ${month} ${year}`;
 };
+
+export function type(typeObj) {
+  const type = Object.keys(typeObj)[0];
+  return typeof typeObj[type] === type;
+}

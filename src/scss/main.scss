@@ -3,12 +3,22 @@
 
 @import 'reset';
 @import 'main-styles';
-/*------------ Контейнеры ------------*/
+
+@import '_color-scheme';
+@import '_input';
+@import '_btn-style';
+// /*------------ Контейнеры ------------*/
 @import '_container';
 
+/*------------ Main header ------------*/
+@import '_main-header';
 /*------------ CSS TRANSITION ------------*/
 @import 'css-transitions';
+
+
 /*------------ Просмотр ------------*/
+@import '_demo-page';
+@import '_sidebar';
 @import '_preview';
 @import 'thumbnails';
 @import 'bookmarks';
@@ -19,13 +29,11 @@
 @import '_helpers';
 /*------------ loadbar ------------*/
 @import '_loadbar';
-/*------------ maker card ------------*/
-@import '_menu';
+
 
 // @import '_style';
 // @import '_new';
 // @import '_newindex';
-@import '_btn-style';
 @import '_svg';
 // @import '_path';
 // @import '_makers_list';

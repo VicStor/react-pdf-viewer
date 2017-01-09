@@ -1,5 +1,6 @@
 @import 'vars';
 @import 'phantoms';
+@import '_mixins';
 
 .d_f, .df {
   @extend %flexbox;
@@ -24,14 +25,20 @@
   @extend %flexbox;
   flex-flow: column wrap;
 }
-.flex-none, .fn {
-  flex: none;
+.flex-none, .fn, .f-none {
+  flex: 0 0 auto;
 }
-.flex-max, .fm {
+.flex-max, .fm, .f-max {
   flex: 1 1 auto;
 }
 .flex-50, .f50 {
   flex: 1 1 50%;
+}
+.f-rel, .flex-rel{
+  flex-basis: auto;
+}
+.f-abs, .flex-abs{
+  flex-basis: 0;
 }
 .a_i-end, .aie {
   align-items: flex-end;
@@ -158,4 +165,18 @@
 }
 .padding-5 {
   padding: $min-gap;
+}
+
+
+.right_0 {
+	@include right();
+}
+.left_0 {
+	@include left();
+}
+.bottom_0 {
+	@include bottom();
+}
+.top_0 {
+	@include top();
 }

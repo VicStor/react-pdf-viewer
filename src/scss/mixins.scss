@@ -32,11 +32,6 @@
   padding: $gap;
 }
 
-@mixin container ( $background-color: $color-white, $gap: $min-gap ){
-  @include padding($gap);
-  background-color: $background-color;
-}
-
 @mixin flexbox {
   display: -webkit-box;
   display: -webkit-flex;

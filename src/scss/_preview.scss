@@ -2,9 +2,9 @@
 @import 'mixins';
 
 .preview {
-  max-width: 1024px;
+  width: 1024px;
   &.fullScreen {
-    max-width: 100%;
+    width: 100%;
   }
 }
 #totalPages{

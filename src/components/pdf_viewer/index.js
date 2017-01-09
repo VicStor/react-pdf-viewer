@@ -62,12 +62,8 @@ class Viewer extends Component {
       this.setState({ currentIndex: pageIndex });
     }
   }
-  numPages = () => {
-    return this.state.numPages;
-  }
-  currentPage = () => {
-    return this.state.currentIndex;
-  }
+  numPages = () => this.state.numPages
+  currentPage = () => this.state.currentIndex
   showThumbnails = (switcher) => {
     const { showThumbnails } = this.state;
     if (switcher !== undefined) {
@@ -97,6 +93,7 @@ class Viewer extends Component {
         showThumbnails={showThumbnails}
         setCurrentPageHandler={onPageFlipp}
         getScrollToItem={scrollToItem}
+        svg={this.props.svg}
       />
     );
   }

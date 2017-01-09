@@ -63,7 +63,10 @@ class PdfViewer extends Component {
         this.props.onLoad(pdfDocument);
         this.setState({ pdfDocument });
       })
-      .catch(this.documentOnError);
+      .catch((err) => {
+        console.error('Error in document promise\n', err);
+        this.componentWillUnmount();
+      });
   }
   componentDidMount() {
     global.addEventListener('resize', this.setViewSize);
@@ -188,7 +191,7 @@ class PdfViewer extends Component {
         pageSize={viewSize}
         fitWidth={fitWidth}
         svg={svg}
-          >
+      >
         <PageNumber
           pageIndex={pageIndex}
           onClick={addBookmark(pageIndex)}
