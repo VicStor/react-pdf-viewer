@@ -9,7 +9,7 @@ import graphQLHTTP from 'express-graphql';
 import schema from './server/graphql/schema';
 
 import config from './webpack.config';
-import appConfig from './server/settings';
+import appConfig from './server/config';
 
 
 const index = path.resolve(__dirname, 'public/index.html');

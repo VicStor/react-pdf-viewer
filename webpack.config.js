@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-import appConfig from './server/settings';
+import appConfig from './server/config';
 
 const BUILD_DIR = path.resolve(__dirname, appConfig.publicFolder);
 const APP_DIR = path.resolve(__dirname, appConfig.appFolder);

@@ -7,6 +7,9 @@
 # Dependency directory
 node_modules/
 
+# Config
+config/
+
 # sass-cashe directory
 .sass-cache
 
