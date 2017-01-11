@@ -4,6 +4,10 @@ import Toggle from 'material-ui/Toggle';
 import SidebarSection from './sidebar_section';
 import Form from '../helpers/form';
 import Input from '../helpers/input';
+import DropZone from './drop_zone';
+
+// convert image.pdf[0] image.jpg
+
 
 const SideMenu = ({ renderToggleHandler, renderToSvg, setPreviewURI }) => (
   <div className='demo-menu m_l-20 fn'>
@@ -53,8 +57,8 @@ const SideMenu = ({ renderToggleHandler, renderToSvg, setPreviewURI }) => (
       headerPrimary='Upload your document'
       headerSecondary='Drag your document to the container'
     >
-      <div>
-        <p>Drop zone</p>
+      <div className='df jcc'>
+        <DropZone />
       </div>
     </SidebarSection>
   </div>

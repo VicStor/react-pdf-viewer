@@ -68,7 +68,6 @@ class PdfPage extends Component {
     }
     if (prevState.pdfPage === null && this.state.pdfPage !== null) {
       this.renderPage();
-      return;
     }
   }
   componentWillUnmount() {
@@ -139,7 +138,7 @@ class PdfPage extends Component {
       this.renderTask = null;
     }
 
-    if(svg) {
+    if (svg) {
       this.renderTask = renderSvg(container, pdfPage, viewport);
     } else {
       this.renderTask = renderCanvas(container, pdfPage, viewport);
@@ -156,14 +155,14 @@ class PdfPage extends Component {
   render() {
     const { pageSize, fitWidth, children } = this.props;
     return (
-        <div
-          // className='pdf-page rel'
-          className='page fn ofh df aic jcc rel'
-          style={pageStyle(pageSize, fitWidth)}
-          ref={this.getPage}
-        >
-          {this.state.pdfPage && children}
-        </div>
+      <div
+        // className='pdf-page rel'
+        className='page fn ofh df aic jcc rel'
+        style={pageStyle(pageSize, fitWidth)}
+        ref={this.getPage}
+      >
+        {this.state.pdfPage && children}
+      </div>
     );
   }
 }

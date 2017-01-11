@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { connect } from '../helpers/connect';
 import SideMenu from './side_menu';
 import Preview from './preview';
+import Card from './doc_card';
 
 import { requestDocs } from '../../actions/docs_actions';
 
@@ -36,14 +37,26 @@ class Demo extends Component {
   renderDocs() {
     if (this.props.docs.isFetching) return 'Fetching docs';
     return this.props.docs.docList
-      .map(doc => (<div>{doc.fileName}</div>));
+      .map(doc => (
+        <Card {...doc} onClick={this.setPreviewURI} />
+      ));
   }
   setPreviewURI = (docLink) => {
     console.log('setPreviewURI docLink: ', docLink);
     this.setState({ docLink }, this.previewHandler());
   }
+  openPreview = (docLink) => {
+    console.log('openPreview, docLink: ', docLink);
+    docLink && this.setState({ docLink });
+    this.setState({ showPreview: true });
+  }
+  closePreview = () => {
+    this.setState({ showPreview: false });
+  }
   render() {
     const { showPreview } = this.state;
+    const { openPreview, closePreview } = this;
+    const { renderToSvg, docLink } = this.state;
 
     return (
       <div className='df fm m_t-10 m_b-10'>
@@ -56,7 +69,7 @@ class Demo extends Component {
               <h3>Files</h3>
               <button
                 className='button text-button prim-dark m_r-10'
-                onClick={this.previewHandler}
+                onClick={() => { openPreview(); }}
               >
                 Show Preview
               </button>
@@ -66,22 +79,22 @@ class Demo extends Component {
               >
                 Fetch docs
               </button>
-              <div>
+              <div className='frn'>
                 {this.renderDocs()}
               </div>
             </div>
           </div>
           <SideMenu
             renderToggleHandler={this.renderToggleHandler}
-            renderToSvg={this.state.renderToSvg}
-            setPreviewURI={this.setPreviewURI}
+            renderToSvg={renderToSvg}
+            setPreviewURI={openPreview}
           />
         </div>
         { showPreview ?
           <Preview
-            closePreview={this.previewHandler}
-            svg={this.state.renderToSvg}
-            docLink={this.state.docLink}
+            closePreview={closePreview}
+            svg={renderToSvg}
+            docLink={docLink}
           /> :
           null
         }

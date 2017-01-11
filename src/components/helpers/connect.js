@@ -1,27 +1,25 @@
 import { connect as rConnect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { type } from './';
-
-// export function type(typeObj) {
-//   const type = Object.keys(typeObj)[0];
-//   return typeof typeObj[type] === type;
-// }
+import { typeOf, someTypeOf } from 'type-check-easy';
 
 export const connect = props => (Component) => {
   const componentProps = Object.keys(props);
 
   const stateProps = {};
   const dispatchProps = {};
-
+// typeOf({ undefined: props[prop] }) || typeOf({ string: props[prop] })
   componentProps.forEach((prop) => {
-    if (type({ undefined: props[prop] }) || type({ string: props[prop] })) {
+    if (someTypeOf({
+      undefined: props[prop],
+      string: props[prop]
+    })) {
       stateProps[prop] =
-        type({ string: props[prop] })
+        typeOf({ string: props[prop] })
         ? props[prop]
         : prop;
       return;
     }
-    if (type({ function: props[prop] })) {
+    if (typeOf({ function: props[prop] })) {
       dispatchProps[prop] = props[prop];
     }
   });
