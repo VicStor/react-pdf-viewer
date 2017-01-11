@@ -8,7 +8,7 @@
 node_modules/
 
 # Config
-config/
+config/private*
 
 # sass-cashe directory
 .sass-cache
