@@ -1,11 +1,11 @@
-#react-pdf-viewer
+# react-pdf-viewer
 
-##Demo
+## Demo
 
 [Demo version](https://calm-ridge-49297.herokuapp.com/)
 Work in fetal stage.
 
-##Usage
+## Usage
 
 $ git clone https://github.com/VicStor/react-pdf-viewer
 
@@ -17,7 +17,7 @@ $ npm start
 
 go to http://localhost:4040/ in your browser
 
-##Should work like that
+## Should work like that
 
 ```js
 import React, { Component } from 'react';
@@ -50,9 +50,9 @@ class App extends Component {
 }
 ```
 
-##pdfViewer
+## pdfViewer
 
-###Component
+### Component
 
 There are props to be pass to <PdfViewer /> Component as chown below
 if svg prop set to true page renders as svg, otherwise it renders in canvas
@@ -91,7 +91,7 @@ this.pdfViewer.onLoadingProgress((progress) => {...});
 // and others
 ```
 
-###Instance
+### Instance
 
 | Method | Argument | Description |
 |---|---|---|
@@ -129,7 +129,7 @@ is the same as
 this.pdfViewer.pdfDocument.onPageLoad((page) => {...});
 ```
 
-##Styling
+## Styling
 
 There are some instances need to be styled
 - document container
